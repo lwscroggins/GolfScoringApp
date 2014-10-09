@@ -1,0 +1,7 @@
+<div data-ng-controller="useraccesscontroller">
+  <form name="signinform">
+    <input type="text" required data-ng-model="username" placeholder="Enter your email address">
+    <input type="text" required data-ng-model="user.password" placecholder="Enter your password">
+    <button data-ng-disabled="signinform.$invalid" data-ng-click="signin()">Sign In</button>
+  </form>
+</div>

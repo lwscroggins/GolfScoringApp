@@ -1,0 +1,8 @@
+<div data-ng-controller="useraccesscontroller">
+  <form name="newuserform">
+    <input type="text" required data-ng-model="username" placeholder="Enter your email address">
+    <input type="text" required data-ng-model="user.password" placeholder="Create a password">
+    <input type="text" required data-ng-model="user.passwordConfirmation" placeholder="Confirm your password">
+    <button data-ng-disabled="newuserform.$invalid" data-ng-click="createNewUser()">Create New Account</button>
+  </form>
+</div>
