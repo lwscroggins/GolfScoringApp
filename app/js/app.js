@@ -10,6 +10,9 @@ var GolfApp = angular.module('GolfApp', ['ngRoute', 'base64', 'ngCookies']);
 //controllers
 require('./GolfApp/controllers/useraccesscontroller')(GolfApp);
 require('./GolfApp/controllers/coursecreatecontroller')(GolfApp);
+require('./GolfApp/controllers/courseselectcontroller')(GolfApp);
+require('./GolfApp/controllers/holescontroller')(GolfApp);
+require('./GolfApp/controllers/gamecontroller')(GolfApp);
 
 //filters
 
@@ -31,6 +34,26 @@ GolfApp.config(['$routeProvider', function($routeProvider) {
     .when('/createcourse', {
       templateUrl: '/views/GolfApp/createcourse.html',
       controller: 'coursecreatecontroller'
+    })
+    .when('/coursecreated', {
+      templateUrl: '/views/GolfApp/coursecreated.html',
+      controller: 'coursecreatecontroller'
+    })
+    .when('/selectcourse', {
+      templateUrl: '/views/GolfApp/selectcourse.html'
+      //controller: 'courseselectcontroller'
+    })
+    .when('/createholes' {
+      templateUrl: '/views/GolfApp/createholes.html',
+      controller: 'holescontroller'
+    })
+    .when('/fore', {
+      templateUrl: '/views/GolfApp/fore.html',
+      controller: 'gamecontroller'
+    })
+    .when('/gameover', {
+      templateUrl: '/views/GolfApp/gameover.html',
+      controller: 'gamecontroller'
     })
     .otherwise({
       redirectTo: '/login'

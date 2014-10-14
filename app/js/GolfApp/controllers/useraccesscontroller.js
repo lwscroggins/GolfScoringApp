@@ -34,8 +34,8 @@ module.exports = function(app) {
       })
       .success(function(data) {
         $cookies.jwt = data.jwt;
-        $location.path('/signup');
-        console.log('succesffuly created new user');
+        $location.path('/login');
+        console.log('succesfuly created new user');
       })
       .error(function(data) {
         console.log('error creating new user');
