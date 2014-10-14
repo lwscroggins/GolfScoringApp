@@ -40,10 +40,10 @@ GolfApp.config(['$routeProvider', function($routeProvider) {
       controller: 'coursecreatecontroller'
     })
     .when('/selectcourse', {
-      templateUrl: '/views/GolfApp/selectcourse.html'
-      //controller: 'courseselectcontroller'
+      templateUrl: '/views/GolfApp/selectcourse.html',
+      controller: 'courseselectcontroller'
     })
-    .when('/createholes' {
+    .when('/createholes', {
       templateUrl: '/views/GolfApp/createholes.html',
       controller: 'holescontroller'
     })
