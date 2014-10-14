@@ -9,6 +9,7 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-karma');
   grunt.loadNpmTasks('grunt-express-server');
+  grunt.loadNpmTasks('grunt-contrib-sass');
 
   grunt.initConfig({
     clean: {
@@ -21,7 +22,7 @@ module.exports = function(grunt) {
       dev: {
         expand: true,
         cwd: 'app/',
-        src: ['*.html', '*.css', 'views/**/*.html'],
+        src: ['*.html', 'css/*.css', 'views/**/*.html'],
         dest: 'build/',
         filter: 'isFile'
       }
@@ -49,6 +50,17 @@ module.exports = function(grunt) {
       simplemocha: {
         server: {
           src: ['test/mocha/api/**/*.js']
+        }
+      }
+    },
+
+    sass: {
+      dist: {
+        options: {
+          style: 'compressed'
+        },
+        files: {
+          'app/css/core.css': 'app/sass/core.scss'
         }
       }
     },
@@ -86,7 +98,7 @@ module.exports = function(grunt) {
     }
   });
 
-  grunt.registerTask('build:dev', ['clean:dev', 'browserify:dev', 'copy:dev']);
+  grunt.registerTask('build:dev', ['clean:dev', 'sass', 'browserify:dev', 'copy:dev']);
   grunt.registerTask('angulartest', ['browserify:angulartest', 'karma:unit']);
   grunt.registerTask('angulartestwatch', ['angulartest', 'watch:angulartest']);
   grunt.registerTask('test', ['angulartest', 'simplemocha']);

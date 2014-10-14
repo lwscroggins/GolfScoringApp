@@ -1,0 +1,7 @@
+{
+"version": 3,
+"mappings": "AAMA,OAAQ,CACN,gBAAgB,CAHJ,OAAO,CAInB,MAAM,CALM,KAAK,CAMjB,KAAK,CAPM,KAAK",
+"sources": ["../sass/core.scss"],
+"names": [],
+"file": "core.css"
+}

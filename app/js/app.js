@@ -9,10 +9,12 @@ var GolfApp = angular.module('GolfApp', ['ngRoute', 'base64', 'ngCookies']);
 
 //controllers
 require('./GolfApp/controllers/useraccesscontroller')(GolfApp);
+require('./GolfApp/controllers/coursecreatecontroller')(GolfApp);
 
 //filters
 
 //services
+require('./GolfApp/services/auth')(GolfApp);
 
 //directives
 
@@ -25,6 +27,10 @@ GolfApp.config(['$routeProvider', function($routeProvider) {
     .when('/signup', {
       templateUrl: '/views/GolfApp/signup.html',
       controller: 'useraccesscontroller'
+    })
+    .when('/createcourse', {
+      templateUrl: '/views/GolfApp/createcourse.html',
+      controller: 'coursecreatecontroller'
     })
     .otherwise({
       redirectTo: '/login'

@@ -1,4 +1,4 @@
-'use strict'
+'use strict';
 
 var express = require('express');
 var bodyparser = require('body-parser');
@@ -21,7 +21,7 @@ var jwtauth = require('./lib/jwtauth')(app);
 
 app.use(bodyparser.json());
 
-var server = http.createServer();
+var server = http.createServer(app);
 
 app.set('port', process.env.PORT || 3000);
 
