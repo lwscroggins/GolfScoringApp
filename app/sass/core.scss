@@ -1,0 +1,11 @@
+//base variables
+
+$base-width: 360px;
+$base-height: 640px;
+$babygotback: #54B250;
+
+.signin {
+  background-color: $babygotback;
+  height: $base-height;
+  width: $base-width;
+}
