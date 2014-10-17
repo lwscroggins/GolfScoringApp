@@ -6,7 +6,7 @@ module.exports = function(app) {
     if($location.path === '/login') $scope.newuser = true;
 
     $scope.signin = function() {
-      $http.defaults.headers.common.Authorization = 'Basic' + $base64.encode($scope.user.email + ":" + $scope.user.password);
+      $http.defaults.headers.common.Authorization = 'Basic' + $base64.encode($scope.user.email + ':' + $scope.user.password);
       $http({
         method: 'GET',
         url: '/api/v.0.0.1/users'
@@ -27,10 +27,11 @@ module.exports = function(app) {
     };
 
     $scope.createNewUser = function() {
+      console.log('clicked createNewUser');
       $http({
         method: 'POST',
         url: '/api/v.0.0.1/users',
-        data: $scope.users
+        data: $scope.user
       })
       .success(function(data) {
         $cookies.jwt = data.jwt;
@@ -38,8 +39,8 @@ module.exports = function(app) {
         console.log('succesfuly created new user');
       })
       .error(function(data) {
-        console.log('error creating new user');
-        console.log(data)
+        console.log('error creating new user: useraccesscontroller');
+        console.log(data);
       });
     };
   });

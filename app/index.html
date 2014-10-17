@@ -7,13 +7,18 @@
   </head>
 
   <body>
-    <div>
+    <div class="centered">
       <h1>The Only Golf Scorecard You'll Ever Need</h1>
-      <a href="#/login">Login</a>
-      <a href="#/signup">New User</a>
-      <p>Logged in as {{user.name}}</p>
+      <div>
+        <a href="#/login">Login</a>
+        <a href="#/signup">New User</a>
+      </div>
+      <div>
+        <p>Logged in as {{user.name}}</p>
+      </div>
+
     </div>
-    <div data-ng-app="GolfApp">
+    <div data-ng-app="GolfApp" class="centered">
       <div data-ng-view></div>
     </div>
     <script type="text/javascript" src="bundle.js"></script>

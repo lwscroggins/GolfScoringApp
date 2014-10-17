@@ -4,6 +4,7 @@ var mongoose = require('mongoose');
 
 var holeSchema = mongoose.Schema({
   basic: {
+    coursename: String,
     number: String,
     par: Number
   }

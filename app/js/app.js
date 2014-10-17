@@ -55,6 +55,10 @@ GolfApp.config(['$routeProvider', function($routeProvider) {
       templateUrl: '/views/GolfApp/gameover.html',
       controller: 'gamecontroller'
     })
+    .when('/signout', {
+      templateUrl: '/views/GolfApp/signout.html',
+      controller: 'useraccesscontroller'
+    })
     .otherwise({
       redirectTo: '/login'
     });

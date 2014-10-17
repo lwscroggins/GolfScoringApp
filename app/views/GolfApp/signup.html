@@ -1,13 +1,14 @@
-<div data-ng-controller="useraccesscontroller">
+<div data-ng-controller="useraccesscontroller" class="centered">
   <form name="newuserform">
     <p>Enter your email address</p>
-    <input type="text" required data-ng-model="user.username" placeholder="Enter your email address">
+    <input type="text" required data-ng-model="user.email" placeholder="Enter your email address">
     <p></p>
     <p>Choose a password</p>
     <input type="text" required data-ng-model="user.password" placeholder="Create a password">
     <p></p>
     <p>Re-enter your password</p>
     <input type="text" required data-ng-model="user.passwordConfirmation" placeholder="Confirm your password">
+    <p></p>
     <button data-ng-disabled="newuserform.$invalid" data-ng-click="createNewUser()">Create New Account</button>
   </form>
 </div>

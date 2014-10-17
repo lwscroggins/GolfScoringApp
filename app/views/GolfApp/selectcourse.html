@@ -1,6 +1,11 @@
-<div data-ng-controller="courseselectcontroller">
+<div data-ng-controller="courseselectcontroller" class="centered">
   <p>Select a course from the database</p>
-  <h3>There will be a dropdown menu here as soon as i can figure it out</h3>
+
+  <div>
+    <!-- selector is way too small and doesn't connect to anything yet -->
+    <select class="ac-select courseList" ac-model="selectedCourse" ac-options="s.name for s in getAllCourses()" ac-settings="{ comboMode: true, loadOnOpen: true, minWidth: '300px' }" ac-change="courseSelected(value)"></select>
+  </div>
+
   <br>
   <p>OR</p>
   <p><a href="#/createcourse">Create a new course</a></p>

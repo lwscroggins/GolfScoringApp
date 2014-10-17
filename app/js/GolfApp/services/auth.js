@@ -4,12 +4,12 @@ module.exports = function(app) {
   app.factory('auth', function($http, $cookies, $location) {
     var auth = {
       sendJWT: function() {
-        if(!cookies.jwt || cookies.jwt.length < 10) {
+        if(!$cookies.jwt || $cookies.jwt.length < 10) {
           $location.path('/login');
           return 'noauth';
         }
 
-        $http.defaults.headers.common['jwt'] = $cookies.jwt;
+        $http.defaults.headers.common.jwt = $cookies.jwt;
       }
     };
 

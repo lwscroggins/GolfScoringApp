@@ -13,7 +13,7 @@ var userSchema = mongoose.Schema({
 });
 
 userSchema.methods.generateHash = function(password) {
-  return bcrypt.hashSync(bcrypt, bcrypt.genSaltSync(8), null);
+  return bcrypt.hashSync(password, bcrypt.genSaltSync(8), null);
 };
 
 userSchema.methods.validPassword = function(password) {
@@ -27,6 +27,8 @@ userSchema.methods.createToken = function(app) {
     iss: self._id,
     expires: expires
   }, app.get('jwtTokenSecret'));
+  console.log('token created - user.js');
+  return token;
 };
 
 module.exports = mongoose.model('User', userSchema);
