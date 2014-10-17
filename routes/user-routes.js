@@ -25,7 +25,6 @@ module.exports = function(app, passport) {
             return res.status(500).json(err);
           }
           return res.status(200).json({'jwt': resUser.createToken(app)});
-          console.log('token created - user-routes');
         });
       }
     });
@@ -34,6 +33,7 @@ module.exports = function(app, passport) {
   app.get('/api/v.0.0.1/users',
     passport.authenticate('basic', {session: false}),
     function(req, res) {
-      res.json({'jwt': req.user.createToken(app)});
+      console.log('getting users');
+      return res.json({'jwt': req.user.createToken(app)});
     });
 };

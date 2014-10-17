@@ -2,14 +2,17 @@
 
 module.exports = function(app) {
   app.controller('useraccesscontroller', function($scope, $http, $cookies, $base64, $location) {
-    if($location.path === '/signout') $cookies.jwt = null;
-    if($location.path === '/login') $scope.newuser = true;
+    if($location.path() === '/signout') $cookies.jwt = null;
+    if($location.path() === '/login') $scope.newuser = true;
 
     $scope.signin = function() {
-      $http.defaults.headers.common.Authorization = 'Basic' + $base64.encode($scope.user.email + ':' + $scope.user.password);
+      console.log('signin clicked');
+      $http.defaults.headers.common.Authorization = 'Basic ' + $base64.encode($scope.user.email + ':' + $scope.user.password);
+      console.log('headers acquired - useraccesscontroller');
       $http({
         method: 'GET',
-        url: '/api/v.0.0.1/users'
+        url: '/api/v.0.0.1/users',
+        data: $scope.user
       })
       .success(function(data) {
         $cookies.jwt = data.jwt;
