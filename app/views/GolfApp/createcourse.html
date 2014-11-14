@@ -1,16 +1,16 @@
 <div data-ng-controller="coursecreatecontroller" class="centered">
   <form name="newcourseform">
     <p>Enter the course's name</p>
-    <input type="text" required data-ng-model="course.name" placeholder="enter the course name">
+    <input type="text" required data-ng-model="course.courseName" placeholder="enter the course name">
     <p></p>
     <p>Enter the courses's city/town</p>
     <input type="text" required data-ng-model="course.city" placeholder="enter the course's city/town">
     <p></p>
     <p>Enter the courses's state</p>
-    <input type="text" required data-ng-model="course.state" placeholder="enter the course's state">
+    <input type="text" required data-ng-model="course.state" placeholder="enter the course's state (ex. WA or TX)">
     <p></p>
     <p>Enter the course length (# of holes)</p>
-    <input type="number" required data-ng-model="course.length" placeholder="9 or 18">
+    <input type="number" required data-ng-model="course.numHoles" placeholder="9 or 18">
     <p></p>
     <button data-ng-disabled="newcourseform.$invalid" data-ng-click="createNewCourse()">Submit</button>
   </form>

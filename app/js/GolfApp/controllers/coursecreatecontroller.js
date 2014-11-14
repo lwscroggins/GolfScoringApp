@@ -10,6 +10,7 @@ module.exports = function(app) {
       })
       .success(function(data) {
         $location.path('/coursecreated.html');
+        console.log('course created');
       })
       .error(function(data) {
         console.log('error creating new course');

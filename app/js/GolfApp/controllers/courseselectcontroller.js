@@ -1,12 +1,18 @@
 'use strict'
 
 module.exports = function(app) {
-  app.controller('courseselectcontroller', function($scope, $http, $location) {
+  app.controller('courseselectcontroller', function($scope, courseServer, $http, $cookies, $location) {
+
+    $http.defaults.headers.common['jwt'] = $cookies.jwt;
 
     $scope.getAllCourses = function (callback) {
-      // callback($scope.allCourses);
-      //this will have to be changed
+      courseServer.index()
+        .success(function(data) {
+          $scope.course = data;
+        });
     };
+
+    $scope.getAllCourses();
 
     $scope.courseSelected = function (course) {
       $scope.courseInfo = course.name + ' (' + course.id + ')';
