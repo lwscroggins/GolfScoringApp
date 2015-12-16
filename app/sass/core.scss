@@ -6,31 +6,32 @@ $babygotback: #ECF8E0;
 $scorediv: #0B610B;
 
 //start stylesheet
-body {
-  background-color: $babygotback;
-  height: $base-height;
-  width: $base-width;
+html, body {
+  height: 100%;
+  width: 100%;
 }
 
-// .centered {
-//   height: 120px;
-//   width: 350px;
-//   border-style: solid;
-//   border-width: 1px;
-//   //justify-content: center;
-//   //align-items: center;
-//   //margin: 10px auto;
-// }
+body {
+  background-image: url("../images/golfapp.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-color: $babygotback;
+}
 
-// .login {
-//   height: 250;
-//   width: 350;
-//   border-style: solid;
-//   border-width: 1px;
-//   justify-content: center;
-//   align-items: center;
-//   margin: 10px auto;
-// }
+.homeOptions {
+	height: 25%;
+	margin: 0 auto;
+}
+
+
+.login, .signup {
+  height: 100vh;
+  margin: 10% 5%;
+}
+
+form label {
+	font-size: 24px;
+}
 
 // .gameon {
 

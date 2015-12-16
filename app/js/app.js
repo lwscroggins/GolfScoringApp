@@ -8,6 +8,7 @@ require('angular-base64');
 var GolfApp = angular.module('GolfApp', ['ngRoute', 'base64', 'ngCookies']);
 
 //controllers
+require('./GolfApp/controllers/navbarcontroller')(GolfApp);
 require('./GolfApp/controllers/useraccesscontroller')(GolfApp);
 require('./GolfApp/controllers/coursecreatecontroller')(GolfApp);
 require('./GolfApp/controllers/courseselectcontroller')(GolfApp);

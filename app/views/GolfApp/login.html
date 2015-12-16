@@ -1,10 +1,20 @@
-<div data-ng-controller="useraccesscontroller" class="login">
-  <form name="signinform">
-    <p>Enter your email address</p>
-    <input type="text" required data-ng-model="user.email" placeholder="Enter your email address">
-    <p></p>
-    <p>Enter your password</p>
-    <input type="text" required data-ng-model="user.password" placecholder="Enter your password">
-    <button data-ng-disabled="signinform.$invalid" data-ng-click="signin()">Sign In</button>
+<div data-ng-controller="useraccesscontroller" class="login col-md-12">
+  <h1>Log In</h1>
+  <form role="form" name="signinform">
+  	<div class="col-xs-12">
+	    <div class="form-group col-xs-6">
+		    <label for="useremail">Enter your email address</label>
+		    <input type="text" class="form-control input-lg" id="useremail" required data-ng-model="user.email" placeholder="Enter your email address">
+		</div>
+	</div>
+	<div class="col-xs-12">
+		<div class="form-group col-xs-6">
+		    <label for="userpass">Enter your password</label>
+		    <input type="text" class="form-control input-lg" id="userpass" required data-ng-model="user.password" placeholder="Enter your password">
+		</div>
+	</div>
+	<div class="col-xs-12">
+    	<button class="btn btn-primary" data-ng-disabled="signinform.$invalid" data-ng-click="signin()">Sign In</button>
+    </div>
   </form>
 </div>

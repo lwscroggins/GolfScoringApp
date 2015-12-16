@@ -1,0 +1,26 @@
+<div class="navbar navbar-default navbar-static-top" data-ng-controller="NavbarCtrl" id="navbar">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button class="navbar-toggle" type="button" ng-click="isCollapsed = !isCollapsed">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <div class="navbar-brand">
+        <img></img>
+      </div>
+      <div class="row-fluid">
+        <div class="row-height">
+          <div collapse="!isCollapsed" class="navbar-collapse in" id="navbar-main">
+            <ul class="nav navbar-nav">
+              <li ng-repeat="item in menu" ng-class="{active: isActive(item.link)}" class="span2">
+                  <a id="{{setMenuId(item)}}" ng-href="{{item.link}}" role="button">{{item.title}}</a>
+              </li>  
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

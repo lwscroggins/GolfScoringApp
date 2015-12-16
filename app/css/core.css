@@ -1,2 +1,2 @@
-body{background-color:#ECF8E0;height:640px;width:360px}
+html,body{height:100%;width:100%}body{background-image:url("../images/golfapp.jpg");background-size:cover;background-repeat:no-repeat;background-color:#ECF8E0}.homeOptions{height:25%;margin:0 auto}.login,.signup{height:100vh;margin:10% 5%}form label{font-size:24px}
 /*# sourceMappingURL=core.css.map */
