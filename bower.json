@@ -1,0 +1,30 @@
+{
+  "name": "newgolf",
+  "description": "",
+  "main": "server.js",
+  "authors": [
+    "larry scroggins"
+  ],
+  "license": "ISC",
+  "homepage": "https://github.com/lwscroggins/GolfScoringApp",
+  "moduleType": [
+    "node"
+  ],
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular-base64": "~2.0.2",
+    "angular-cookies": "~1.4.8",
+    "angular-mocks": "~1.2.26",
+    "angular-resource": "~1.4.8",
+    "angular-route": "~1.2.26",
+    "bootstrap": "~3.3.6",
+    "sinon": "~1.10.3"
+  }
+}

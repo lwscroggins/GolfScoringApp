@@ -1,16 +1,16 @@
-<div data-ng-controller="useraccesscontroller" class="login col-md-12">
-  <h1>Log In</h1>
+<div class="login col-md-12">
+  <div class="title"><h1>Log In</h1></div>
   <form role="form" name="signinform">
   	<div class="col-xs-12">
 	    <div class="form-group col-xs-6">
 		    <label for="useremail">Enter your email address</label>
-		    <input type="text" class="form-control input-lg" id="useremail" required data-ng-model="user.email" placeholder="Enter your email address">
+		    <input type="email" class="form-control input-lg" id="useremail" required data-ng-model="user.email" placeholder="Enter your email address">
 		</div>
 	</div>
 	<div class="col-xs-12">
 		<div class="form-group col-xs-6">
 		    <label for="userpass">Enter your password</label>
-		    <input type="text" class="form-control input-lg" id="userpass" required data-ng-model="user.password" placeholder="Enter your password">
+		    <input type="password" class="form-control input-lg" id="userpass" required data-ng-model="user.password" placeholder="Enter your password">
 		</div>
 	</div>
 	<div class="col-xs-12">

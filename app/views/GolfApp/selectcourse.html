@@ -1,12 +1,101 @@
-<div data-ng-controller="courseselectcontroller" class="centered">
-  <p>Select a course from the database</p>
-
-  <div>
-    <!-- selector is way too small and doesn't connect to anything yet -->
-    <select class="ac-select courseList" ac-model="selectedCourse" ac-options="s.name for s in getAllCourses()" ac-settings="{ comboMode: true, loadOnOpen: true, minWidth: '300px' }" ac-change="courseSelected(value)"></select>
-  </div>
-
-  <br>
-  <p>OR</p>
-  <p><a href="#/createcourse">Create a new course</a></p>
+<div class="centered">
+	<div class="title"><h1>Select Course</h1></div>
+	<div id="selectOptions" class="col-xs-12">
+		<form role="form" name="selectOptionsForm">
+			<div class="col-xs-12">
+				<div class="col-xs-6">
+					<label for="selectOptionsDrop">Select by:</label>
+					<select name="selectOptionsDrop" class="form-control span6" id="selectOptionsdrop" ng-model="topselect.type">
+						<option ng-option value="city">City</option>
+						<option ng-option value="state">State</option>
+						<option ng-option value="courseName">Course Name</option>
+					</select>
+				</div>
+			</div>
+		</form>
+	</div>
+	<div class="col-xs-12" id="getready">
+		<div ng-show="topselect.type == 'courseName'" id="selectCourse" class="col-xs-12">
+			<form role="form" name="courseSelect-name">
+				<div class="col-xs-12">
+					<div class="col-xs-6">
+						<label for="courseSelectName">Select a course</label>
+						<select name="courseSelectName" class="form-control span6" id="courseSelectName" ng-model="courseselected.id">
+							<option ng-option value="{{course.name}}" ng-repeat="course in courseList">
+								<a id="{{setMenuId(course)}}" role="button">{{course.name}}</a>
+							</option>
+						</select>
+					</div>
+				</div>
+			</form>
+		</div>
+		<div ng-show="topselect.type == 'city'" id="selectCourse" class="col-xs-12">
+			<form role="form" name="courseSelect-city">
+				<div class="col-xs-12">
+					<div class="col-xs-6">
+						<label for="courseSelectCity">City</label>
+						<select name="courseSelectCity" class="form-control" id="courseSelectCity" ng-model="cityselect.city">
+							<option ng-option ng-repeat="course in courseList" value="{{course.city}}">
+								<a id="{{setMenuId(course)}}" role="button">{{course.city}}</a>
+							</option>
+						</select>
+					</div>
+				</div>
+			</form>
+			<div ng-show="cityselect.city != null" id="selectbycity" class="col-xs-12">
+				<form role="form" name="selectbycity">
+					<div class="col-xs-12">
+						<div class="col-xs-6">
+							<label for="coursesInCity">Course</label>
+							<select name="coursesInCity" class="form-control" id="coursesInCitySelector" ng-model="courseselected.id">
+								<option ng-option ng-repeat="course in courseList | filter: { city: cityselect.city }" value="{{course.name}}">
+									<a id="{{setMenuId(course)}}" role="button">{{course.name}}</a>
+								</option>
+							</select>
+						</div>
+					</div>
+				</form>
+			</div>
+		</div>
+		<div ng-show="topselect.type == 'state'" id="selectCourse" class="col-xs-12">
+			<form role="form" name="courseSelect-state">
+				<div class="col-xs-12">
+					<div class="col-xs-6">
+						<label for="courseSelectState">State</label>
+						<select name="courseSelectState" class="form-control" id="courseSelectState" ng-model="stateselect.state">
+							<option ng-option ng-repeat="course in courseList" value="{{course.state}}">
+								<a id="{{setMenuId(course)}}" role="button">{{course.state}}</a>
+							</option>
+						</select>
+					</div>
+				</div>
+			</form>
+			<div ng-show="stateselect.state != null" id="selectbystate" class="col-xs-12">
+				<form role="form" name="selectbystate">
+					<div class="col-xs-12">
+						<div class="col-xs-6">
+							<label for="coursesInState">Course</label>
+							<select name="coursesInState" class="form-control" id="coursesInStateSelector" ng-model="courseselected.id">
+								<option ng-option ng-repeat="course in courseList | filter: { state: stateselect.state }" value="{{course.name}}">
+									<a id="{{setMenuID(course)}}" role="button">{{course.name}}</a>
+								</option>
+							</select>
+						</div>
+					</div>
+				</form>
+			</div>
+		</div>
+		<div ng-show="courseselected.id != null">
+			<div class="col-xs-12">
+				<div class="col-xs-6">
+					<button class="btn btn-primary" ng-click="go('/fore')">Fore!</button>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div id="createCourse">
+		<h2>OR</h2>
+		<h3>Create A New Course</h3>
+		<button class="btn btn-primary" ng-click="go('/createcourse')">Create A New Course</button>
+	</div>
 </div>
