@@ -20,7 +20,7 @@ require('./GolfApp/controllers/gamecontroller')(GolfApp);
 
 //services
 require('./GolfApp/services/auth')(GolfApp);
-// require('./GolfApp/services/course-server')(GolfApp);
+require('./GolfApp/services/course-server')(GolfApp);
 
 //directives
 
