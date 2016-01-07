@@ -50,7 +50,7 @@ GolfApp.config(['$routeProvider', function($routeProvider) {
       templateUrl: '/views/GolfApp/createholes.html',
       controller: 'holescontroller'
     })
-    .when('/fore/:id', {
+    .when('/fore', {
       templateUrl: '/views/GolfApp/fore.html',
       controller: 'gamecontroller'
     })

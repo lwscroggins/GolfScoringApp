@@ -4,24 +4,30 @@
 
 module.exports = function(app) {
   app.controller('courseselectcontroller', ['$rootScope', '$scope', '$http', '$cookies', '$location', 'CourseServer', function($rootScope, $scope, $http, $cookies, $location, CourseServer) {
-    var _ = require('lodash');
+    // var _ = require('lodash');
     // $http.defaults.headers.common['jwt'] = $cookies.jwt;
 
     $scope.selectedCourse = {};
     $scope.courseList = [];
 
-    $scope.courseList = CourseServer.courseList;
+    $scope.courseList = CourseServer.getCourses();
 
     $scope.go = function(path) {
-      console.log(path);
       $location.path(path);
     };
 
-    $scope.selectCourse = function(val) {
-        console.log('select course');
-        var index = _.pick($scope.courseList, function(chr) { return chr.name == val });
-        $scope.selectedCourse = index;
-        console.log($scope.selectedCourse);
+    $scope.selectedCourse = function(val) {
+      CourseServer.selectedCourse(val);
     }
+    
+
+    // $scope.selectCourse = function(val) {
+    //     console.log('select course');
+    //     var index = _.pick($scope.courseList, function(chr) { return chr.name == val });
+    //     // $scope.selectedCourse = index;
+    //     console.log(index);
+    //     $rootScope.$broadcast('SelectedCourse', index);
+    // }
+
   }]);
 };

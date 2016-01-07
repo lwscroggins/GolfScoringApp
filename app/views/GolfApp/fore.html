@@ -1,3 +1,25 @@
-<div data-ng-controller="gamecontroller" class="gameon">
-
+<div class="centered">
+	<div class="gameon">
+		<ul class="list-unstyled">
+			<li class="coursehole col-xs-12" ng-repeat="hole in holes">
+				<form role="form" name="holesform">
+					<div class="holeinfo form-group">
+						<div class="holedetails col-xs-6">
+							<h1 class="holename span6">{{hole.name}}</h1>
+							<label for="holedistance" class="span3">Distance: </label>
+							<div name="holedistance" class="distance form-control span3">{{hole.distance}}</div>
+							<label for="holepar" class="span3">Par: </label>
+							<div name="holepar" class="par form-control span3">{{hole.par}}</div>
+							<label for="holescore" class="span3">Strokes: </label>
+							<input type="text" class="strokes form-control span3" name="holescore" ng-model="hole.strokes">
+							<button class="btn btn-default" ng-click="scoreHole($index, hole.strokes)">Submit</button>
+						</div>
+					</div>
+				</form>
+			</li>
+		</ul>
+		<div class="endgamebutton">
+			<button class="btn btn-primary" ng-click="gameOver()">End Game</button>
+		</div>
+	</div>
 </div>

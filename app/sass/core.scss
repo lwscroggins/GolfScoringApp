@@ -20,6 +20,7 @@ body {
   background-size: cover;
   background-repeat: no-repeat;
   background-color: $babygotback;
+  background-attachment: fixed;
 }
 
 .homeOptions {
@@ -35,6 +36,25 @@ body {
 
 form label {
 	font-size: 24px;
+}
+
+form div {
+  width: 50%;
+}
+
+form input {
+  width: 50%;
+}
+
+form select {
+  width: 50%;
+}
+
+.coursehole {
+  width: 50%;
+  background: rgba(0, 128, 0, 0.25);
+  margin: 5px;
+  padding: 5px;
 }
 
 // .gameon {

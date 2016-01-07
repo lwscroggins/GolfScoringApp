@@ -20,7 +20,7 @@
 				<div class="col-xs-12">
 					<div class="col-xs-6">
 						<label for="courseSelectName">Select a course</label>
-						<select name="courseSelectName" class="form-control span6" id="courseSelectName" ng-model="courseselected.id" ng-change="selectCourse(courseselected.id)">
+						<select name="courseSelectName" class="form-control span6" id="courseSelectName" ng-model="courseselected.id" ng-change="selectedCourse(courseselected.id)">
 							<option ng-option value="{{course.name}}" ng-repeat="course in courseList">
 								<a id="{{setMenuId(course)}}" role="button">{{course.name}}</a>
 							</option>
@@ -47,7 +47,7 @@
 					<div class="col-xs-12">
 						<div class="col-xs-6">
 							<label for="coursesInCity">Course</label>
-							<select name="coursesInCity" class="form-control" id="coursesInCitySelector" ng-model="courseselected.id" ng-change="selectCourse(courseselected.id)">
+							<select name="coursesInCity" class="form-control" id="coursesInCitySelector" ng-model="courseselected.id" ng-change="selectedCourse(courseselected.id)">
 								<option ng-option ng-repeat="course in courseList | filter: { city: cityselect.city }" value="{{course.name}}">
 									<a id="{{setMenuId(course)}}" role="button">{{course.name}}</a>
 								</option>
@@ -75,7 +75,7 @@
 					<div class="col-xs-12">
 						<div class="col-xs-6">
 							<label for="coursesInState">Course</label>
-							<select name="coursesInState" class="form-control" id="coursesInStateSelector" ng-model="courseselected.id" ng-change="selectCourse(courseselected.id)">
+							<select name="coursesInState" class="form-control" id="coursesInStateSelector" ng-model="courseselected.id" ng-change="selectedCourse(courseselected.id)">
 								<option ng-option ng-repeat="course in courseList | filter: { state: stateselect.state }" value="{{course.name}}">
 									<a id="{{setMenuID(course)}}" role="button">{{course.name}}</a>
 								</option>
