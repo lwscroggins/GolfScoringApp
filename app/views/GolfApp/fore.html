@@ -1,5 +1,6 @@
 <div class="centered">
 	<div class="gameon">
+		<div>{{courseName}}</div>
 		<ul class="list-unstyled">
 			<li class="coursehole col-xs-12" ng-repeat="hole in holes">
 				<form role="form" name="holesform">
@@ -19,7 +20,7 @@
 			</li>
 		</ul>
 		<div class="endgamebutton">
-			<button class="btn btn-primary" ng-click="gameOver()">End Game</button>
+			<button class="btn btn-primary" ng-click="gameOver('/gameover')">End Game</button>
 		</div>
 	</div>
 </div>

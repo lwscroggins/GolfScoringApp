@@ -7,27 +7,62 @@ module.exports = function(app) {
     $scope.holes = [];
 
     $scope.getCourse = CourseServer.getCourse();
-
+    $scope.index = Object.keys($scope.getCourse)[0];
+    $scope.courseName = '';
+    
     $scope.getAllHoles = function(event, data) {
-      $scope.holes = $scope.getCourse[0].holes;
+      $scope.holes = $scope.getCourse[$scope.index].holes;
+      $scope.courseName = $scope.getCourse[$scope.index].name;
     };
 
     $scope.getAllHoles();
-    console.log($scope.holes);
 
     $scope.scoreHole = function(index, strokes) {
       //saves the score when it's entered by the user
       //calculates the over/under par for the hole
       $scope.holes[index].strokes = strokes;
+      console.log('strokes: ' + $scope.holes[index].strokes)
       $scope.holes[index].difference = Number($scope.holes[index].strokes) - Number($scope.holes[index].par);
-      console.log($scope.holes[index]);
+      console.log('difference: ' + $scope.holes[index].difference);
     };
 
-    $scope.gameOver = function() {
+    $scope.scoreGame = function () {
       //ends the game
       //calculates the over/under par score
       //displays the scores by hole and total with pars for each hole
-      var path = '/gameover';
+      var total = 0;
+      $scope.finalScore = '';
+      angular.forEach($scope.holes, function(value, key) {
+        var strokes = Number($scope.holes[key].strokes);
+        total = total + strokes;
+      });
+      $scope.finalScore = total.toString();
+      return $scope.finalScore;
+    }
+
+    $scope.coursePar = function() {
+      var total = 0;
+      $scope.parforthecourse = '';
+      angular.forEach($scope.holes, function(value, key) {
+        var totalPar = Number($scope.holes[key].par);
+        total = total + totalPar;
+      });
+      $scope.parforthecourse = total.toString();
+      return $scope.parforthecourse;
+    }
+
+    $scope.courseOverUnder = function() {
+      var total = 0;
+      $scope.coursedifference = '';
+      angular.forEach($scope.holes, function(value, key) {
+        var difference = Number($scope.holes[key].difference);
+        total = total + difference;
+      });
+      $scope.coursedifference = total.toString();
+      return $scope.coursedifference;
+    }
+
+    $scope.gameOver = function(path) {
       $location.path(path);
     };
 

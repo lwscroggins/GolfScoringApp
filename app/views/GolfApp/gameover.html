@@ -1,7 +1,23 @@
-<div data-ng-controller="gamecontroller" class="centered">
-  <h1>YOU'RE DONE. Congrats</h1>
-  <p>Here are your results</p>
-  <div>
-    <!-- results will go in here -->
-  </div>
+<div class="centered">
+	<div class="gameover">
+		<div class="col-xs-12" id="congratulations">
+			<h1>YOU'RE DONE. Congrats</h1>
+		</div>
+		<div class="col-xs-12">
+			<ul class="list-unstyled">
+				<li ng-repeat="hole in holes" class="span6 coursehole">
+					<div class="holeName">{{hole.name}}</div>
+					<div class="holePar">Par: {{hole.par}}</div>
+					<div class="holeScore">Strokes: {{hole.strokes}}</div>
+					<div class="holeDifference">Over/Under: {{hole.difference}}</div>
+				</li>
+			</ul>
+		</div>
+		<div class="col-xs-12" id="overallResults">
+			<div class="span12" id="overallTitle">Game Summary</div>
+			<div class="span12" id="overallPar">Par for the course: {{coursePar()}}</div>
+			<div class="span12" id="overallScore">Your Score: {{scoreGame()}}</div>
+			<div class="span12" id="overUnderPar">Difference: {{courseOverUnder()}}</div>
+		</div>
+	</div>
 </div>
