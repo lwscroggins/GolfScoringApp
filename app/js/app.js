@@ -6,8 +6,9 @@ require('angular-cookies');
 require('angular-base64');
 require('angular-resource');
 require('angular-bootstrap');
+require('angular-touch');
 
-var GolfApp = angular.module('GolfApp', ['ngRoute', 'base64', 'ngCookies', 'ngResource', 'ui.bootstrap']);
+var GolfApp = angular.module('GolfApp', ['ngRoute', 'base64', 'ngCookies', 'ngResource', 'ui.bootstrap', 'ngTouch']);
 
 //controllers
 require('./GolfApp/controllers/navbarcontroller')(GolfApp);

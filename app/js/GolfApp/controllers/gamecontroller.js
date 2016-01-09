@@ -21,8 +21,9 @@ module.exports = function(app) {
       //saves the score when it's entered by the user
       //calculates the over/under par for the hole
       $scope.holes[index].strokes = strokes;
-      console.log('strokes: ' + $scope.holes[index].strokes)
+      $scope.holes[index].scoresubmitted = 1;
       $scope.holes[index].difference = Number($scope.holes[index].strokes) - Number($scope.holes[index].par);
+      console.log('strokes: ' + $scope.holes[index].strokes);
       console.log('difference: ' + $scope.holes[index].difference);
     };
 
