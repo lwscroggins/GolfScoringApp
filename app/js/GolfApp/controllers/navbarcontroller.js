@@ -28,5 +28,7 @@ module.exports = function(app) {
         'link': '#/signout'
       }
     ];
+
+    $scope.isCollapsed = true;
   });
 }

@@ -2,7 +2,6 @@
 
 module.exports = function(app) {
   app.controller('useraccesscontroller', function($scope, $http, $cookies, $base64, $location) {
-    console.log('hello');
     if($location.path() === '/signout') $cookies.jwt = null;
     if($location.path() === '/login') $scope.newuser = true;
 

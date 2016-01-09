@@ -5,15 +5,15 @@ require('angular-route');
 require('angular-cookies');
 require('angular-base64');
 require('angular-resource');
+require('angular-bootstrap');
 
-var GolfApp = angular.module('GolfApp', ['ngRoute', 'base64', 'ngCookies', 'ngResource']);
+var GolfApp = angular.module('GolfApp', ['ngRoute', 'base64', 'ngCookies', 'ngResource', 'ui.bootstrap']);
 
 //controllers
 require('./GolfApp/controllers/navbarcontroller')(GolfApp);
 require('./GolfApp/controllers/useraccesscontroller')(GolfApp);
 require('./GolfApp/controllers/coursecreatecontroller')(GolfApp);
 require('./GolfApp/controllers/courseselectcontroller')(GolfApp);
-require('./GolfApp/controllers/holescontroller')(GolfApp);
 require('./GolfApp/controllers/gamecontroller')(GolfApp);
 
 //filters
@@ -48,7 +48,7 @@ GolfApp.config(['$routeProvider', function($routeProvider) {
     })
     .when('/createholes', {
       templateUrl: '/views/GolfApp/createholes.html',
-      controller: 'holescontroller'
+      controller: 'coursecreatecontroller'
     })
     .when('/fore', {
       templateUrl: '/views/GolfApp/fore.html',
