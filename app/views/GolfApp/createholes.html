@@ -1,0 +1,10 @@
+<div data-ng-controller="holescontroller" class="centered">
+  <h1>There's a lot of stuff that has to be done here</h1>
+  <h3>how do i repeat this div over and over based on the number of holes in the course model?</h3>
+
+  <form name="holecreater" data-ng-repeat-start="hole in holes">
+    <p>Hole</p>
+    <input type="number" data-ng-model="holes.par" placeholder="enter par for this hole">
+    <button ng-click="createHole()">Create Hole</button>
+  </form data-ng-repeat-end>
+</div>

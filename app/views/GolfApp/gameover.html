@@ -1,0 +1,46 @@
+<div class="centered">
+	<div class="gameover">
+		<div class="col-xs-12" id="congratulations">
+			<h1>Game Over</h1>
+		</div>
+		<div class="col-xs-12">
+			<table class="table table-condensed">
+				<thead>
+					<tr>
+						<th class="col-xs-3 text-center">Hole</th>
+						<th class="col-xs-4 text-center">Distance</th>
+						<th class="col-xs-1 text-center">Par</th>
+						<th class="col-xs-3 text-center">Strokes</th>
+						<th class="col-xs-1 text-center">O/U</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr ng-repeat="hole in holes">
+						<td>{{hole.name}}</td>
+						<td>{{hole.distance}}</td>
+						<td>{{hole.par}}</td>
+						<td>{{hole.strokes}}</td>
+						<td>{{hole.difference}}</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+		<div class="col-xs-12" id="overallResults">
+			<h4 class="col-xs-12 text-center" id="overallTitle">Game Summary</h4>
+			<table class="table table-condensed">
+				<tr>
+					<td class="col-xs-8">Par for the Course</td>
+					<td class="col-xs-4">{{coursePar()}}</td>
+				</tr>
+				<tr>
+					<td class="col-xs-8">Your score</td>
+					<td class="col-xs-4">{{scoreGame()}}</td>
+				</tr>
+				<tr>
+					<td class="col-xs-8">Difference</td>
+					<td class="col-xs-4">{{courseOverUnder()}}</td>
+				</tr>
+			</table>
+		</div>
+	</div>
+</div>

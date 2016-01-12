@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="css/core.css" />
+    <title>The Only Golf Scorecard You'll Ever Need</title>
+  </head>
+  <body data-ng-app="GolfApp">
+    <div ng-include="'components/navbar.html'"></div>
+    <div class="container">
+      <div data-ng-view></div>
+    </div>
+    <div ng-inlcude="'components/footer.html'"></div>
+    <script type="text/javascript" src="bundle.js"></script>
+    <script src="/bower_components/angular-touch/angular-touch.js"></script>
+  </body>
+</html>

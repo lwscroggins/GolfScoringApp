@@ -1,0 +1,26 @@
+<div data-ng-controller="useraccesscontroller" class="signup col-md-12">
+  <div class="title"><h1>Create New User</h1></div>
+  <form role="form" name="newuserform">
+    <div class="col-xs-12">
+        <div class="form-group col-xs-6">
+            <label for="useremail">Enter your email address</label>
+            <input type="email" class="form-control input-lg" id="useremail" required data-ng-model="user.email" placeholder="Enter your email address">
+        </div>
+    </div>
+    <div class="col-xs-12">
+        <div class="form-group col-xs-6">
+            <label for="userpass">Choose a password</label>
+            <input type="password" class="form-control input-lg" id="userpass" required data-ng-model="user.password" placeholder="Create a password">
+        </div>
+    </div>
+    <div class="col-xs-12">
+        <div class="form-group col-xs-6">
+            <label for="userpass2">Re-enter your password</label>
+            <input type="password" class="form-control input-lg" id="userpass2" required data-ng-model="user.passwordConfirmation" placeholder="Confirm your password">
+        </div>
+    </div>
+    <div class="col-xs-12">
+        <button class="btn btn-primary" data-ng-disabled="newuserform.$invalid" data-ng-click="createNewUser()">Create Account</button>
+    </div>
+  </form>
+</div>

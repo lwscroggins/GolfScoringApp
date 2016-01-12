@@ -1,0 +1,56 @@
+//base variables
+
+$base-width: 360px;
+$base-height: 640px;
+$babygotback: #ECF8E0;
+$scorediv: #0B610B;
+
+//start stylesheet
+html, body {
+  height: 100%;
+  width: 100%;
+}
+
+.title {
+	margin: 10px;
+}
+
+body {
+  background-image: url("../images/golfapp.jpg");
+  background-size: cover;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-repeat: no-repeat;
+  background-color: $babygotback;
+  background-attachment: fixed;
+}
+
+//navbar css
+
+.navbar, .coursehole, .table, #overallResults {
+  background: rgba(255, 255, 255, 0.50);
+}
+
+//course select css
+
+#courseselectbtn, #endgamebtn {
+  position: relative;
+  top: 20px;
+}
+
+//fore
+
+.coursehole {
+  margin: 5px;
+  padding: 5px;
+}
+
+//gameover
+
+.table td {
+  text-align: center;
+}
+
+//signout

@@ -1,0 +1,40 @@
+<div class="centered">
+	<div class="gameon">
+		<div class="col-xs-12"><h1 class="text-center">{{courseName}}</h1></div>
+		<ul class="list-unstyled">
+			<li class="coursehole col-xs-12" ng-repeat="hole in holes" ng-swipe-right="scoreHole($index, hole.strokes)" ng-hide="hole.scoresubmitted == 1">
+				<div class="holeinfo">
+					<div class="holedetails col-xs-12">
+						<h3 class="holename">{{hole.name}}</h3>
+						<div class="holeinfo col-xs-12">
+							<span name="holedistance" class="distance col-xs-6">Distance: {{hole.distance}}</span>
+							<span name="holepar" class="par col-xs-6">Par: {{hole.par}}</span>
+						</div>
+					</div>
+					<div class="holescoring col-xs-12">
+						<form  class="form-inline" role="form" name="holesform">
+							<div class="row">
+								<div class="row-height">
+									<div class="holestrokes form-group">
+										<div class="col-xs-3">
+											<h4>Strokes: </h4>
+										</div>
+										<div class="col-xs-3" name="holescore">
+											<input type="text" class="strokes form-control" ng-model="hole.strokes" placeholder="{{hole.par}}">
+										</div>
+									</div>
+									<div class="col-xs-6">
+										<!--<button class="btn btn-default pull-right" type="submit" ng-click="scoreHole($index, hole.strokes)">Submit</button>-->
+									</div>
+								</div>
+							</div>
+						</form>
+					</div>
+				</div>
+			</li>
+		</ul>
+		<div class="endgamebtn">
+			<button class="btn btn-primary btn-lg btn-block" ng-click="gameOver('/gameover')">End Game</button>
+		</div>
+	</div>
+</div>
