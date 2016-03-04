@@ -30,5 +30,10 @@ module.exports = function(app) {
     ];
 
     $scope.isCollapsed = true;
+
+    $scope.collapseNav = function() {
+      $scope.isCollapsed = true;
+    };
   });
-}
+};
+

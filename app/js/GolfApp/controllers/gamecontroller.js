@@ -1,7 +1,7 @@
 'use strict'
 
 module.exports = function(app) {
-  app.controller('gamecontroller',['$scope', '$http', '$location', '$cookies', 'CourseServer', function($scope, $http, $location, $cookies, CourseServer) {
+  app.controller('gamecontroller',['$scope', '$http', '$location', 'CourseServer', function($scope, $http, $location, CourseServer) {
     // $http.defaults.headers.common.jwt = $cookies.jwt;
 
     $scope.holes = [];
@@ -9,7 +9,7 @@ module.exports = function(app) {
     $scope.getCourse = CourseServer.getCourse();
     $scope.index = Object.keys($scope.getCourse)[0];
     $scope.courseName = '';
-    
+
     $scope.getAllHoles = function(event, data) {
       $scope.holes = $scope.getCourse[$scope.index].holes;
       $scope.courseName = $scope.getCourse[$scope.index].name;

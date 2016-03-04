@@ -12,8 +12,8 @@
     <div uib-collapse="isCollapsed" class="navbar-collapse">
       <ul class="nav navbar-nav">
         <li ng-repeat="item in menu" ng-class="{active: isActive(item.link)}" class="col-xs-12 list-inline list-unstyled">
-            <a id="{{setMenuId(item)}}" ng-href="{{item.link}}" role="button">{{item.title}}</a>
-        </li>  
+            <a id="{{setMenuId(item)}}" ng-href="{{item.link}}" role="button" ng-click="collapseNav()">{{item.title}}</a>
+        </li>
       </ul>
     </div>
   </div>

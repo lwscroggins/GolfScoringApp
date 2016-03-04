@@ -2,11 +2,82 @@
 
 'use strict';
 
+// module.exports = function(app) {
+//     app.factory('CourseServer', function($http) {
+//         var parseCourse = function(course) {
+//             return {
+//                 name: course.courseName,
+//                 city: course.city,
+//                 state: course.state,
+//                 numHoles: course.numHoles
+//             };
+//         };
+
+//         var course = {
+//             index: function() {
+//                 var promise = $http({
+//                     method: 'GET',
+//                     url: '/api/v.0.0.1/courses'
+//                 })
+//                 .error(function(data, status) {
+//                     console.log('ERROR at get course.index');
+//                     console.log(data);
+//                     console.log(status);
+//                 });
+//                 return promise;
+//             },
+//             saveNewCourse: function(course) {
+//                 var promise = $http.post('/api/v.0.0.1/courses', parseCourse(course))
+//                     .error(function(data, status) {
+//                         console.log('ERROR at course.saveNewCourse');
+//                         console.log(data);
+//                         console.log(status);
+//                     });
+//                 return promise;
+//             },
+//             updateCourse: function(course) {
+//                 var promise = $http.put('/api/v.0.0.1/courses' + course._id)
+//                     .error(function(data, status) {
+//                         console.log('ERROR at course.updateCourse');
+//                         console.log(data);
+//                         console.log(status);
+//                     });
+//                 return promise;
+//             },
+//             deleteCourse: function(course) {
+//                 var promise = $http.delete('/api/v.0.0.1/courses' + course._id)
+//                     .error(function(data, status) {
+//                         console.log('ERROR at course.deleteCourse');
+//                         console.log(data);
+//                         console.log(status);
+//                     });
+//                 return promise;
+//             }
+//         };
+//         return course;
+//     });
+// };
+
+
 module.exports = function(app) {
-    app.factory('CourseServer', function() {
+    app.factory('CourseServer', function($http) {
         var _ = require('lodash');
         var index = {};
-        var courseList =  
+        var courseList = {
+            index: function() {
+                var promise = $http({
+                    method: 'GET',
+                    url: '/api/v.0.0.1/courses'
+                })
+                .error(function(data, status) {
+                    console.log('ERROR at get courseList');
+                    console.log(data);
+                    console.log(status);
+                });
+                return promise;
+            }
+        };
+        var courseList =
             [
                 {
                   'id': 1,
@@ -270,7 +341,7 @@ module.exports = function(app) {
                 return courseList;
             },
             'selectedCourse': function(val) {
-                index = _.pick(courseList, function(chr) { return chr.name == val });
+                index = _.pick(courseList, function(chr) { return chr.name == val; });
                 return index;
             },
             'getCourse': function() {

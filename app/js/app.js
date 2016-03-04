@@ -1,17 +1,16 @@
-'use strict'
+'use strict';
 
-require('angular/angular');
-require('angular-route');
-require('angular-cookies');
+require('angular');
+// require('angular-cookies');
 require('angular-base64');
-require('angular-resource');
-require('angular-bootstrap');
-require('angular-touch');
+// require('angular-resource');
+var uibs = require('angular-ui-bootstrap');
 
-var GolfApp = angular.module('GolfApp', ['ngRoute', 'base64', 'ngCookies', 'ngResource', 'ui.bootstrap', 'ngTouch']);
+var GolfApp = angular.module('GolfApp', [require('angular-route'), uibs, require('angular-touch'), require('angular-cookies'), 'base64', require('angular-resource')]);
 
 //controllers
 require('./GolfApp/controllers/navbarcontroller')(GolfApp);
+require('./GolfApp/controllers/infocontroller')(GolfApp);
 require('./GolfApp/controllers/useraccesscontroller')(GolfApp);
 require('./GolfApp/controllers/coursecreatecontroller')(GolfApp);
 require('./GolfApp/controllers/courseselectcontroller')(GolfApp);
@@ -27,6 +26,10 @@ require('./GolfApp/services/course-server')(GolfApp);
 
 GolfApp.config(['$routeProvider', function($routeProvider) {
   $routeProvider
+    .when('/info', {
+      templateUrl: '/views/GolfApp/info.html',
+      controller:'infocontroller'
+    })
     .when('/login', {
       templateUrl: '/views/GolfApp/login.html',
       controller: 'useraccesscontroller'
@@ -63,7 +66,11 @@ GolfApp.config(['$routeProvider', function($routeProvider) {
       templateUrl: '/views/GolfApp/signout.html',
       controller: 'useraccesscontroller'
     })
+    .when('/desktop', {
+      templateUrl: '/views/GolfApp/desktop.html',
+      controller: 'useraccesscontroller'
+    })
     .otherwise({
-      redirectTo: '/login'
+      redirectTo: '/info'
     });
 }]);
